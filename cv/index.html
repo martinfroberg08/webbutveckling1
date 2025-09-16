@@ -1,143 +1,197 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cv</title>
+<!DOCTYPE html> <!--Talar om för webbläsaren vilken HTML version det är. I detta fall HTML 5-->
+<html lang="sv"> <!--Språkattribut. sv för svenska, en för engelska-->
+<head> <!--Head innehåller information om själva webbsidan, syns dock inte på den-->
 
-    <style> 1q  aa
- *{
-    padding: 0;
-    margin: 0;
- }
-  .nav-header { padding: 16px;
-    background-color: rgb(0, 255, 255, 0.427);
-  }
-  .nav-ul { list-style: none; 
-    display: flex;
-    gap: 32px; 
-    justify-content: space-between;
-    background-color: hsl(181, 100%, 50%);
+    <!--META-taggar är som etiketter på paketets utsida - de berättar OM innehållet utan att synas i själva innehållet.-->
 
-  }
-  a {
-    text-decoration none; 
-    color:aliceblue
-    font-family: arial, Helvetica, sans-serif; 
+    <meta charset="UTF-8"> <!--Teckenkodning för att kunna använda bland annat ÅÄÖ-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Responsiv design för mobiler. Talar om för mobilen hur stor webbsidan ska visas-->
+    <title>CV</title>
+
+    <!-- Internal Styling -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        .nav-header {
+            background-color: #5f9ea0;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-ul {
+            list-style: none;
+            display: flex;
+            gap: 64px;
+            justify-content: space-between;
+        }
+
+        a {
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            color: #f7f7f7;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a:hover {
+            transition: all 0.2s ease-in-out;
+            color: #000;
+            text-decoration: underline;
+        }
+
+        main {
+           background-color: rgb(225, 225, 225); 
+           display: flex;
+           flex-direction: column;
+           gap: 64px;
+           padding: 64px;
+        }
+        .about-me {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color: rgb(244, 191, 191);
+            padding: 4rem; 
+        }
+        .education {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color: rgb(196, 217, 248);
+            padding: 4rem; 
+        }
+
+        article {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .article-heder {
+            background-color: antiquewhite;
+            display:flex;
+            flex-direction:column;
+            gap: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        ol{
+            list-style: none;
+            line-height: 25px;
+        }
+        .p-header {
+        color:rgb(42, 46, 43);
+            display: flex;
+            flex-direction:column;
+        }
+    
+
+    
 
 
-  }
-  a:hover {
-    text-decoration: none;
-    color: black;
-    text-decoration: underline;
-  }
-a { 
-    trasition all 0.2s esae-in-out; 
-    text-decoration: none;
-    color:aliceblue
-    font family: arial, 
-}
-main {
-    background-color: #e8e8d9;
-    display flex; 
-    flex-direction: column;
-    gap: 64px;
-    padding 64px;
-}
-
-  
     </style>
 </head>
-<body>
-    <header>  
-        <nav>
+<body> <!--Här i läggs all HTML-kod som syns på webbsidan-->
+    <header class="nav-header"> <!-- HEADER - är en semantisk HTML-tagg som markerar huvudet/toppen av något - kan vara hela sidan ELLER en del av sidan -->
+        <nav> <!--Semantisk HTML för navigation-->
             <ul class="nav-ul">
-                <li><a href="#about me"> om mig </a> </li>
-                <li><a href="#education"> Utbildning<a/></li>
-                <li><a href="#work"> arbetslivserfarenhet<a/></li>
-                <li><a href="#techstack"> Tex stack<a/></li>
+                <li><a href="#about-me">Om mig</a></li>
+                <li><a href="#education">Utbildning</a> </li>
+                <li><a href="#work">Arbetslivserfarenhet</a></li>
+                <li><a href="#tech-stack">Tech stack</a></li>
+                <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
-<main>
-    <section class="about-m1" id="about-m1">
-            <h2>om mig </h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo provident dolor ad totam vel consectetur, possimus impedit tenetur sit dolores non iure sint est. Molestiae ab minus placeat odit officiis. </p>
-    </section> 
+    <main> <!--MAIN - är en semantisk HTML-tagg som används för allt huvudinnehåll på webbsidan-->
+        <section class="about-me" id="about-me">
+            <h2>Om mig</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rem, repellat ut corrupti rerum aliquid incidunt eaque perspiciatis perferendis libero.</p>
+        </section>
 
-    <section class="about-m1" id="about-m1">
-        <h2> Utbildning </h2> 
-        <article>
-            <header>
-                <h4>tekink design och produktutvekling</h4>
-                <p>
-                    <strong> Bobergsgymmnasiet</strong>
-                    <time datetime="2024-10">Oktober 2024</time>
-                    <span>-</span>
-                    <time datetime="2027-06">Juni 2027</time>
-                </p> 
-            </header>
-            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic quas dolor saepe nostrum cum perferendis nisi nobis. Perspiciatis quas neque rem voluptatibus dignissimos, natus nobis debitis quia suscipit ex placeat?
-            </p>
-            <ol>
-                <li> Lorem ipsum dolor sit amet.</li>
-                <li> Lorem ipsum dolor sit amet.</li>
-                <li> Lorem ipsum dolor sit amet.</li>
-                <li> Lorem ipsum dolor sit amet.</li>
-            </ol>
-        </article>
+        <section class="education" id="education">
+            <h2>Utbildning</h2>
 
-
-    </section id = "work">
-
-    <section> <h2> Arbetslivserfarenhet </h2> 
-        <article>
-            <header>
-                <h4>City Gross</h4>
-                <p>
-                    <strong> Bobergsgymmnasiet</strong>
-                    <time datetime="2025-06">Juni 2025</time>
-                    <span>-</span>
-                    <time datetime="2025-08">Agusti 2025</time>
-                </p> 
-            </header>
-            
-            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic quas dolor saepe nostrum cum perferendis nisi nobis. Perspiciatis quas neque rem voluptatibus dignissimos, natus nobis debitis quia suscipit ex placeat?
-            </p>
-            <ol>
-                <li> Lorem ipsum dolor sit amet.</li>
-                <li> Lorem ipsum dolor sit amet.</li>
-                <li> Lorem ipsum dolor sit amet.</li>
-                <li> Lorem ipsum dolor sit amet.</li>
-            </ol>
-        </article>
-    </section>
-            <section id = "techstack"> 
-                <h2> Texst stack </h2> 
-                <div>
-                        <h4>Programmeringsspråk</h4>
-                         <ul> <li></li>
-                         <li></li>
-                         <li></li>
-                         <li></li>
-                        </ul>
-                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic quas dolor saepe nostrum cum perferendis nisi nobis. Perspiciatis quas neque rem voluptatibus dignissimos, natus nobis debitis quia suscipit ex placeat?
+            <article>
+                <header class="article-heder">
+                    <h4>Frontend utveckling</h4>
+                    <p class="p-header">             <strong>Medieinstitutet</strong>
+                        <time datetime="2022-10">Oktober 2022</time>
+                        <span>-</span>
+                        <time datetime="2024-06">Juni 2024</time>
                     </p>
-                    <ol>
-                        <li> Lorem ipsum dolor sit amet.</li>
-                        <li> Lorem ipsum dolor sit amet.</li>
-                        <li> Lorem ipsum dolor sit amet.</li>
-                        <li> Lorem ipsum dolor sit amet.</li>
-                    </ol>
-                </div>
-            </section>
-</main>
-<footer> 
-<a href="tel:+46739740622">0739740622 </a>
-<a href="mailto:frobergmartin292@gmail.com">skicka mail</a>
-</footer>
+                </header>
 
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, dolorum.</p>
+
+                <ol>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                </ol>
+            </article>
+        </section>
+
+        <section id="work">
+            <h2>Arbetslivserfarenhet</h2>
+
+            <article>
+                <header class="article-heder">
+                    <h4>Lärare</h4>
+                    <p>
+                        <strong>Bobergsgymnasiet</strong>
+                        <time datetime="2025-08">Augusti 2025</time>
+                        <span>-</span>
+                        <time datetime="2025-12">December 2025</time>
+                    </p>
+                </header>
+
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, dolorum.</p>
+
+                <ol>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                </ol>
+            </article>
+        </section>
+
+        <section id="tech-stack">
+            <h2>Tech stack</h2>
+
+            <div>
+
+                    <h4>Programmeringsspråk</h4>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                    </ul>
+
+
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, dolorum.</p>
+
+                <ol>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+    <footer id="contact">
+        <a href="tel:+46700001122">070 000 11 22</a>
+        <a href="mailto:melvinkempe@hotmail.com">Skicka email</a>
+    </footer>
 </body>
 </html>
