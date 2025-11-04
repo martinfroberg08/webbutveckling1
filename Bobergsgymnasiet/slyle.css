@@ -2,10 +2,24 @@
     padding: 0;
     margin: 0;
 }
+button{
+     background: transparent;
+    border: none;
+}
 header{
     background-color: #4CAF50;
     padding: 16px;
+    min-height: calc( 100vh - 32px );
 }
+nav{
+    position: relative;
+    display: block;
+
+}
+.hidden{
+    display: none;
+}
+
 
 ul{
     display: flex;
@@ -14,4 +28,21 @@ ul{
 }
 li{
     list-style: none;
+}
+a{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.social-img{
+    width: 32px;
+    height: 32px;
+}
+.menu-close-btn{
+   width: 32px;
+   position: absolute;
+   top: 0;
+   right: 0;
+    
 }
