@@ -12,7 +12,12 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="nav-closed">
+            <a href="index.html">Bobergsgymnasiet</a>
+
+            <hr />
+ 
+            <section class="mobile-nav hidden">
             <ul>
                 <li><a href="index.html">Hem</a></li>
                 <li><a href="om-oss.html">Om Bobergsgymnasiet</a></li>
@@ -26,9 +31,15 @@
             
             </ul>
 
-            <button type="button" class="menu-close-btn"><img src="./img/x-solid-full.svg"></button>
+            <button type="button" class="menu-btn top-0" id="menu-close">
+                <img src="./img/x-solid-full.svg"></button>
+            </section> 
+              <button type = "button" class="menu-btn" id="menu-open">
+                <img src = "./img/bars-solid-full.svg">
+            </button>
         </nav>
     </header>
     
 </body>
 </html>
+
