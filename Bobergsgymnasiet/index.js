@@ -1,10 +1,13 @@
 const nav = document.querySelector("nav");
 const mobileNav = document.querySelector(".mobile-nav");
 const hamburgerBtn = document.querySelector("#menu-open");
- const news = [
+
+const closeBtn = document.querySelector("#menu-close");
+
+const news = [
   {
     id: "1",
-    img: "./img/boberg nyhet 1.webp",
+    img: "./img/img1.jpg",
     title: "Föredrag 22/10",
     date: "16 oktober 2025",
     content:
@@ -12,7 +15,7 @@ const hamburgerBtn = document.querySelector("#menu-open");
   },
   {
     id: "2",
-    img: "./img/boberg nyhet 2.webp",
+    img: "./img/img2.webp",
     title: "Åk 9 besöksdag",
     date: "5 oktober 2025",
     content:
@@ -20,27 +23,35 @@ const hamburgerBtn = document.querySelector("#menu-open");
   },
   {
     id: "3",
-    img: "./img/boberg nyhet 3.webp",
+    img: "./img/img3.webp",
     title: "Föräldramöte åk 1 9/9",
-    date: "2 septembet 2025",
+    date: "2 september 2025",
     content:
       "Till vårdnadshavare för elever i årskurs 1 Välkomna till föräldramöte! Ni är varmt välkomna till skolan för att träffa rektor, mentorer och en del annan personal. Vi vill gärna ha ett nära samarbete med er så att vi tillsammans kan hjälpa eleverna att lyckas med sin skolgång. Det är första terminen för era ungdomar i en ny skolform som ställer annorlunda krav och har andra förutsättningar än tidigare. Tid:      Tisdag 9 september 2025, kl. 18.30. Plats:            Aulan, Bobergsgymnasiet (mitt i huset, en trappa upp från huvudentrén). Vi kommer först ses i helgrupp för en del allmän information. Efter det går ni vidare med mentorerna för ytterligare information och samtal om just er klass. Under kvällen kommer vi att tala om våra regler och rutiner, informera om programmen i gymnasieskolan och hur arbetet med elevernas lärande går till på Bobergsgymnasiet. Naturligtvis bjuder vi även på fika. Välkomna! / Jennie Stadling Wilsson, rektor Bobergsgymnasiet. Vi ber er fylla i nedanstående talong som lämnas till mentor senast torsdag 4/9. Tack!",
   },
 ];
 
 const closeMenu = () => {
-    mobileNav.classList.add("hidden");
-    nav.classList.add("nav-closed");
-    hamburgerBtn.classList.remove("hidden");
-   
-}
- 
+  hamburgerBtn.classList.remove("hidden");
+  closeBtn.classList.add("hidden");
+
+  mobileNav.classList.add("hidden");
+};
+
 const openMenu = () => {
-    hamburgerBtn.classList.add("hidden");
-    nav.classList.remove("nav-closed");
-    mobileNav.classList.remove("hidden");
-   
-}   
+  hamburgerBtn.classList.add("hidden");
+  closeBtn.classList.remove("hidden");
+
+  mobileNav.classList.remove("hidden");
+};
+
+const menuCloseBtn = document
+  .querySelector("#menu-close")
+  .addEventListener("click", closeMenu);
+
+const menuOpenBtn = document
+  .querySelector("#menu-open")
+  .addEventListener("click", openMenu);
 
 const renderNews = () => {
   const container = document.querySelector(".news-grid");
@@ -58,13 +69,34 @@ const renderNews = () => {
     container.appendChild(card);
   });
 };
+card.addEventListener("click"), () => {
+  window.location.href = `news.html?id=${news.id}`;
 
-renderNews(); 
+  container.appendChild(card);
+}
+renderNews();
  
-const menuCloseBtn = document
-.querySelector("#menu-close")
-.addEventListener("click", closeMenu)
+const renderNewsDetail = () => {
+  const container = document.querySelector(".news-content");
+  if (!container) return; }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const newsId = urlParams.get("id");
+  const newsItem = news.find((news) => item.id === newsId);
+  if (newsItem) {
+    container.innerHTML = `
+      <img src="${newsItem.img}" alt="${newsItem.title}" class="news-detail-image" />
+      <h1 class="new-title">${newsItem.title}</h2>
+      <p class="news-date">${newsItem.date}</p>
+      <p class="news-content">${newsItem.content}</p>
+      `;
+  } else {
+    container.innerHTML = 
+    `<p>Nyheten hittades inte.</p>`;
+};
+
+if (document.querySelector(".news-grid") renderNews)
+  if (document.querySelector(".news-content")) renderNewsDetail();{
+}
+
  
-const menuOpenBtn = document
-.querySelector("#menu-open")
-.addEventListener("click", openMenu)
