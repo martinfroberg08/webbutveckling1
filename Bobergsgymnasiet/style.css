@@ -91,20 +91,22 @@ a {
 .news-title {
   padding-top: 16px;
 }
+
+/* Styling för artikeldetaljsidan */
 .news-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 16px;
-  display: flex
-  flex-direction: column
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
+
 .back-link {
-  display: inline-block;
-  margin-bottom: 24px;
-  text-decoration: none;
   color: #111111;
+  text-decoration: none;
   font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .back-link:hover {

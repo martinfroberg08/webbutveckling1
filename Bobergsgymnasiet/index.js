@@ -4,10 +4,12 @@ const hamburgerBtn = document.querySelector("#menu-open");
 
 const closeBtn = document.querySelector("#menu-close");
 
+let showingEvents = 3;
+
 const news = [
   {
     id: "1",
-    img: "./img/img1.jpg",
+    img: "./img/boberg-25_40.jpg.webp",
     title: "Föredrag 22/10",
     date: "16 oktober 2025",
     content:
@@ -15,7 +17,7 @@ const news = [
   },
   {
     id: "2",
-    img: "./img/img2.webp",
+    img: "./img/boberg-25_tackforedragOH_44.jpg.webp",
     title: "Åk 9 besöksdag",
     date: "5 oktober 2025",
     content:
@@ -23,13 +25,84 @@ const news = [
   },
   {
     id: "3",
-    img: "./img/img3.webp",
+    img: "./img/Inbjudan-foraldramote-2526.jpg.webp",
     title: "Föräldramöte åk 1 9/9",
     date: "2 september 2025",
     content:
       "Till vårdnadshavare för elever i årskurs 1 Välkomna till föräldramöte! Ni är varmt välkomna till skolan för att träffa rektor, mentorer och en del annan personal. Vi vill gärna ha ett nära samarbete med er så att vi tillsammans kan hjälpa eleverna att lyckas med sin skolgång. Det är första terminen för era ungdomar i en ny skolform som ställer annorlunda krav och har andra förutsättningar än tidigare. Tid:      Tisdag 9 september 2025, kl. 18.30. Plats:            Aulan, Bobergsgymnasiet (mitt i huset, en trappa upp från huvudentrén). Vi kommer först ses i helgrupp för en del allmän information. Efter det går ni vidare med mentorerna för ytterligare information och samtal om just er klass. Under kvällen kommer vi att tala om våra regler och rutiner, informera om programmen i gymnasieskolan och hur arbetet med elevernas lärande går till på Bobergsgymnasiet. Naturligtvis bjuder vi även på fika. Välkomna! / Jennie Stadling Wilsson, rektor Bobergsgymnasiet. Vi ber er fylla i nedanstående talong som lämnas till mentor senast torsdag 4/9. Tack!",
   },
 ];
+const events = [
+  {
+    day: "10",
+    month: "december",
+    title: "Nobeldagen/uf-mässa",
+    weekday: "onsdag",
+    statuscolor: "yellow",
+  }
+   {
+    day: "10",
+    month: "december",
+    title: "Nobeldagen/uf-mässa",
+    weekday: "onsdag",
+    statuscolor: "yellow",
+    }
+    {
+    day: "19",
+    month: "december",
+    title: "Julavslutning",
+    weekday: "fredag",
+    statuscolor: "green",
+    }
+    {
+    day: "20",
+    month: "december",
+    endDay: "7",
+    endMonth: "januari",
+    title: "Jullov",
+    weekday: "lördag",
+    statuscolor: "red",
+    }
+    {
+    day: "09",
+    month: "februari",
+    title: "studiedag",
+    weekday: "måndag",
+    statuscolor: "red",
+    }
+    {
+    day: "02",
+    month: "mars",
+    endDay: "8",
+    endMonth: "mars",
+    title: "Sportlov",
+    weekday: "måndag",
+    statuscolor: "red",
+    }
+    {
+    day: "10",
+    month: "december",
+    title: "Nobeldagen/uf-mässa",
+    weekday: "onsdag",
+    statuscolor: "yellow",
+    }
+    {
+    day: "10",
+    month: "december",
+    title: "Nobeldagen/uf-mässa",
+    weekday: "onsdag",
+    statuscolor: "yellow",
+    }
+    {
+    day: "10",
+    month: "december",
+    title: "Nobeldagen/uf-mässa",
+    weekday: "onsdag",
+    statuscolor: "yellow",
+    }
+];
+    
+    
 
 const closeMenu = () => {
   hamburgerBtn.classList.remove("hidden");
@@ -66,37 +139,90 @@ const renderNews = () => {
       <p class="news-date">${news.date}</p>
     `;
 
+    card.addEventListener("click", () => {
+      window.location.href = `news.html?id=${news.id}`;
+    });
+
     container.appendChild(card);
   });
 };
-card.addEventListener("click"), () => {
-  window.location.href = `news.html?id=${news.id}`;
 
-  container.appendChild(card);
-}
-renderNews();
- 
 const renderNewsDetail = () => {
   const container = document.querySelector(".news-content");
-  if (!container) return; }
+  if (!container) return;
 
+  // Hämta ID från URL-parametern
   const urlParams = new URLSearchParams(window.location.search);
   const newsId = urlParams.get("id");
-  const newsItem = news.find((news) => item.id === newsId);
+
+  // Hitta rätt artikel
+  const newsItem = news.find((n) => n.id === newsId);
+
   if (newsItem) {
     container.innerHTML = `
-      <img src="${newsItem.img}" alt="${newsItem.title}" class="news-detail-image" />
-      <h1 class="new-title">${newsItem.title}</h2>
+      <img src="${newsItem.img}" alt="${newsItem.title}" class="news-image" />
+      <h1 class="news-title">${newsItem.title}</h1>
       <p class="news-date">${newsItem.date}</p>
-      <p class="news-content">${newsItem.content}</p>
-      `;
+      <p class="news-text">${newsItem.content}</p>
+    `;
   } else {
-    container.innerHTML = 
-    `<p>Nyheten hittades inte.</p>`;
+    container.innerHTML = `
+      <p>Artikeln kunde inte hittas.</p>
+    `;
+  }
 };
 
-if (document.querySelector(".news-grid") renderNews)
-  if (document.querySelector(".news-content")) renderNewsDetail();{
-}
+const createDayEvent = (event) => {
+  if (!event.endDay && !event.endMonth) {
+    if (event.month === event.endMonth) {
+      return `<div class="event-date>
+        <div class="date-container">
+          <h2>${event.day} - ${event.endDay}</h2> 
+       </div>
+       <div class="event-date">
+          <p>${event.month} - ${event.endMonth}</p>
+          <div class="month-container">
+        </div>`;
+      
+      
+    
+    } else {
+      return `
+      <div class="event-date>
+        <div class="date-container">
+          <h2>${event.day}</h2>
+      </div>
+
+      <div class="event-date>
+        <div class="date-container">
+          <h2>${event.endDay}</h2>
+      </div>
+
+      <div class="event-date>
+        <div class="month-container">
+          <h2>${event.day}</h2>
+      </div>
+
+      <div class="event-date>
+        <div class="month-container">
+          <h2>${event.endDay}</h2>
+      </div>
+
+    } `
+  } else {
+    return `
+    <div class="event-date> 
+      <div class="date-container">
+        <h2>${event.day}</h2>
+    </div>
+      
+  }`
+
+}  
+
+// Kör rätt funktion beroende på vilken sida vi är på
+if (document.querySelector(".news-grid")) renderNews();
+if (document.querySelector(".news-content")) renderNewsDetail();
+
 
  
