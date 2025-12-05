@@ -171,54 +171,72 @@ const renderNewsDetail = () => {
     `;
   }
 };
+  return ` 
+  <time class="event-date" datetime="${event.day}-${event.month}">
+  <time class="date-day" datetime="${event.day}</span>
+    <span class="date-separator">-</span>
+    <span class="date-day">${event.endday}</span>
+    <span class="dat-month"> ${event.month}</span>
 
-const createDayEvent = (event) => {
-  if (!event.endDay && !event.endMonth) {
-    if (event.month === event.endMonth) {
-      return `<div class="event-date>
-        <div class="date-container">
-          <h2>${event.day} - ${event.endDay}</h2> 
-       </div>
-       <div class="event-date">
-          <p>${event.month} - ${event.endMonth}</p>
-          <div class="month-container">
-        </div>`;
-      
+
+}`
+
       
     
-    } else {
+   else {
       return `
-      <div class="event-date>
-        <div class="date-container">
-          <h2>${event.day}</h2>
-      </div>
-
-      <div class="event-date>
-        <div class="date-container">
-          <h2>${event.endDay}</h2>
-      </div>
-
-      <div class="event-date>
-        <div class="month-container">
-          <h2>${event.day}</h2>
-      </div>
-
-      <div class="event-date>
-        <div class="month-container">
-          <h2>${event.endDay}</h2>
-      </div>
-
-    } `
-  } else {
-    return `
-    <div class="event-date> 
-      <div class="date-container">
-        <h2>${event.day}</h2>
-    </div>
-      
+      <time class="event-daty" datetime="${event.day}-${event.month}"> 
+      <span class="date-day"> ${event.day}</span>
+      <span class="date-month">${event.month}<span/>
+      </time>
+      <time class="event-date" datetime="${event.endDay}-${event.endMonth}
+      <span class="date-day"> ${event.endDay}</span>
+      <span class="date-month">${event.endMonth}<span/>
   }`
 
-}  
+   }  
+ else 
+  return `
+    <time class="event-date" datetime="${event.day}-${event.month}">
+    <span class="date-day"> ${event.day}</span>
+    <span class="date-month">${event.month}<span/>
+
+  </time> 
+`
+const renderEvents = () => { 
+  const container = document.querySelector(".event-list");
+  container.innerHTML = "";
+  const eventsToShow = events.slice(0, showingEvents);
+
+  eventsToShow.forEach((event) => {
+    const eventElement = document.createElement("li");
+    eventElement.className = "event-item";
+    const dateHTML = renderEventDate(event);
+    eventElement.innerHTML = `
+    <article>
+      ${dateHTML}
+      <section class="event-info">
+        <header class="event-title-row">
+          <h3 class="event-title">${event.title}</h3>
+          <span class="event-circle-${event.statuscolor}" area-label="status">
+          </span>
+        <header/>
+        <time class="event-weekday" datetime="${event.weekday}">${event.weekday}</time>
+      <section/>
+      <a href="#" class="event-details">Detaljer</a>
+    <article/>
+    `;
+    container.appendChild(eventElement);
+  }); 
+};
+const handleShowMore = () => {
+  showingEvents += 3;
+  renderEvents();
+  if (showingEvents >= events.length) {
+    const btn = document.querySelector("#show-more-btn");
+    classList.add("hidden");
+  }
+};
 
 // Kör rätt funktion beroende på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews();
