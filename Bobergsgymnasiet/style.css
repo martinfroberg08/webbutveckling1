@@ -112,3 +112,49 @@ a {
 .back-link:hover {
   text-decoration: underline;
 }
+
+/* Styling för event-list */
+.edvent-article {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edvent-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; 
+}
+
+.event-card {
+  border: 1px solid #323232;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.date-wrapper {
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.event-date {
+ display: flex;
+ flex-direction: column;
+ border-radius: 8px;
+ color: floralwhite;
+ font-weight: 700;
+}
+.date-day {
+  padding: 8px;
+
+}
+
+.date-month {
+  padding: 8px;
+  border-radius: 0px 0px 8px 8px;
+  background-color: rgb(162, 67, 67);
+
+}
