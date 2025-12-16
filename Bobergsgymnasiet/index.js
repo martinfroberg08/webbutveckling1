@@ -25,7 +25,7 @@ const news = [
   },
   {
     id: "3",
-    img: "./img/meet.webp",
+    img: "./img/inbjudan-foraldramote-2526.jpg.webp",
     title: "Föräldramöte åk 1 9/9",
     date: "2 september 2025",
     content:
@@ -179,9 +179,11 @@ const createDateElement = (event) => {
       // Om samma månad, visa datum i en ruta
       return `
         <time class="event-date" datetime="${event.day}-${event.month}">
-          <span class="date-day">${event.day}</span>
-          <span class="date-separator">-</span>
-          <span class="date-day">${event.endDay}</span>
+          <div class="day-wrapper">
+            <span class="date-day">${event.day}</span>
+            <span class="date-separator">-</span>
+            <span class="date-day">${event.endDay}</span>
+          </div>
           <span class="date-month">${event.month}</span>
         </time>
       `;
@@ -191,7 +193,8 @@ const createDateElement = (event) => {
           <span class="date-day">${event.day}</span>
           <span class="date-month">${event.month}</span>
         </time>
-        <time class="event-date" datetime="${event.endDay}-${event.endMonth}>
+
+        <time class="event-date" datetime="${event.endDay}-${event.endMonth}">
           <span class="date-day">${event.endDay}</span>
           <span class="date-month">${event.endMonth}</span>
         </time>
@@ -226,19 +229,20 @@ const renderEvents = () => {
 
     eventElement.innerHTML = `
       <article class="event-card">
-      <div class="date-wrapper">
+        <hr />
+        <div class="date-wrapper">
           ${dateHtml}
         </div>
         <section class="event-info">
           <header class="event-title-row">
             <h3 class="event-title">${event.title}</h3>
-            <span class="status-circle status-${event.statusColor}" aria-label="Status">
-            </span>
+            <div class="status-circle status-${event.statusColor}" aria-label="Status">
+            </div>
           </header>
           <time class="event-weekday" datetime="${event.weekday}">${event.weekday}</time>
         </section>
         <a href="#" class="event-details">Detaljer</a>
-        <hr />
+        <hr class="hr"/>
       </article>
     `;
 
@@ -260,11 +264,8 @@ const handleShowMore = () => {
     btn.classList.add("hidden");
   }
 };
- const showMoreBtn = document
-   .querySelector("#show-more-btn")
-   if (showMoreBtn) showMoreBtn.addEventListener("click", handleShowMore);
-   
-
+const showMoreBtn = document.querySelector(".show-more-btn");
+if (showMoreBtn) showMoreBtn.addEventListener("click", handleShowMore);
 
 // Kör rätt funktion beroende på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews();
